@@ -1,25 +1,17 @@
+"use client";
+
 import Link from "next/link";
-import ProductsDialog from "@/components/modals/ProductsDialog";
-import { redirect } from "next/navigation"
+import Dialog from "@/components/modals/Dialog";
+import { useRouter } from "next/navigation";
 
 const ProductsPage = () => {
-    const onClose = async () => {
-        "use server";
-        console.log("Modal has closed");
+    const router = useRouter();
 
-        redirect('/products');
-    }
-
-    const onOk = async () => {
-        "use server";
-        console.log("Ok was clicked");
-
-        redirect('/products');
-    }
+    const redirect = () => router.push("/products");
 
     return (
         <>
-            <ProductsDialog title="Example Modal" onClose={onClose} onOk={onOk}>
+            <Dialog title="Example Modal" onClose={redirect} onOk={redirect}>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Deleniti explicabo aliquid incidunt assumenda dolor, minus
@@ -35,7 +27,7 @@ const ProductsPage = () => {
                     molestias dicta praesentium vero repudiandae molestiae,
                     omnis placeat velit. Nesciunt non odio tempora quas!
                 </p>
-            </ProductsDialog>
+            </Dialog>
 
             <h1 className="text-5xl">Home</h1>
 

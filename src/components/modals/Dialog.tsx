@@ -10,7 +10,7 @@ type Props = {
     children: React.ReactNode;
 };
 
-const ProductsDialog = ({ title, onClose, onOk, children }: Props) => {
+const Dialog = ({ title, onClose, onOk, children }: Props) => {
     const searchParams = useSearchParams();
     const dialogRef = useRef<null | HTMLDialogElement>(null);
     const showDialog = searchParams.get("showDialog");
@@ -70,4 +70,4 @@ const ProductsDialog = ({ title, onClose, onOk, children }: Props) => {
     return dialog;
 };
 
-export default ProductsDialog;
+export default Dialog;
